@@ -19,26 +19,32 @@ class Login extends Component{
   }
 
   onLogin(){
-    //console.info(this.state.email)
-    //console.info(this.state.password)
     this.props.history.push('/dashboard')
+  }
+
+  componentDidMount(){
+    console.info('didMount');
+  }
+
+  componentWillUnmount(){
+    console.info('willUnmount');
   }
 
   render(){
     return (
-      <Container>
+      <Container style={{marginTop: '50px'}}>
         <Row>
-          <Col md={{ span: 4, offset: 4 }}>
+          <Col sm={{span:4, offset:4}}>
             <Form>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Control type="text" placeholder="Email" autoComplete='off' 
-                name='email'
-                value={this.state.email} onChange={this.onChange} />
+              <Form.Group>
+                <Form.Control type="text" placeholder="Email" 
+                onChange={this.onChange} name={'email'}
+                autoComplete='off' value={this.state.email}/>
               </Form.Group>
-              <Form.Group controlId="formBasicPassword">
-                <Form.Control type="password" placeholder="Password"
-                name='password'
-                value={this.state.password} onChange={this.onChange} />
+              <Form.Group>
+                <Form.Control type="password" placeholder="Password" 
+                onChange={this.onChange} name={'password'}
+                value={this.state.password}/>
               </Form.Group>
               <Button variant="primary" onClick={this.onLogin}>
                 Login
